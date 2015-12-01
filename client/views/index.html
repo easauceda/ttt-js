@@ -14,20 +14,21 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
 
 		<script src="js/app.js"></script>
+		<script src="js/travel.controller.js"></script>
+		<script src="js/travel.service.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js"></script>
     	<script>
       		function initialize() {
         	var mapCanvas = document.getElementById('map');
         	var mapOptions = {
-         	 center: new google.maps.LatLng(44.5403, -78.5463),
-          	zoom: 8,
+         	 center: new google.maps.LatLng(34.0621924,-118.1758029),
+          	zoom: 14,
           	mapTypeId: google.maps.MapTypeId.ROADMAP
         	}
         	var map = new google.maps.Map(mapCanvas, mapOptions)
       		}
       		google.maps.event.addDomListener(window, 'load', initialize);
     	</script>
-
 	</head>
 	<body ng-app="app">
 
@@ -38,7 +39,10 @@
 		<ul class="nav navbar-nav">
 		</ul>
 		</nav>
+		<div class="container">
+			<h2> Time to Travel!</h2>
+		</div>
+		<div id="map"></div>
 		<div ng-view></div>
-
 	</body>
 </html>

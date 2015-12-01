@@ -1,6 +1,7 @@
 var express = require('express');
 var server = express();
 
+require('./api/routes')(server);
 server.use(express.static('./client'));
 
 server.get('*', function(req, res) {
