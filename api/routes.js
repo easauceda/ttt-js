@@ -26,4 +26,8 @@ module.exports = function(app) {
             }
           });
     });
+    app.get('/api/reminder', function(req, res) {
+	    console.log('made it');
+	    res.json({'Hello': 'World'});
+    });
 };
