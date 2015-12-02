@@ -27,7 +27,14 @@ module.exports = function(app) {
           });
     });
     app.get('/api/reminder', function(req, res) {
-	    console.log('made it');
-	    res.json({'Hello': 'World'});
+	    res.json({"reminders" : {
+  					"carrier": "T-Mobile",
+  					"destination": "Venice, CA",
+  					"monday": "true",
+  					"origin": "Covina, CA",
+  					"phone": "6266784572",
+  					"time": "1970-01-01T21:30:00.000Z",
+  					"wednesday": "true"
+				}});
     });
 };
