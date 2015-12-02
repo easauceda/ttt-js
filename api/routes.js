@@ -27,6 +27,7 @@ module.exports = function(app) {
           });
     });
     app.get('/api/reminder', function(req, res) {
+    	//tims couchbase code here
 	    res.json({"reminders" : {
   					"carrier": "T-Mobile",
   					"destination": "Venice, CA",
@@ -36,5 +37,10 @@ module.exports = function(app) {
   					"time": "1970-01-01T21:30:00.000Z",
   					"wednesday": "true"
 				}});
+    });
+    app.get('/api/delete/:id', function(req, res) {
+	    //couchbase call here
+	    console.log(req.params.id);
+	    res.send("OK");
     });
 };
