@@ -1,6 +1,7 @@
 var couchbase = require('couchbase');
 var cluster = new couchbase.Cluster('couchbase://127.0.0.1');
 var bucket = cluster.openBucket('reminders');
+var uuid = require('node-uuid');
 
 //Add a reminder
 module.exports = function(app) {
@@ -30,6 +31,7 @@ module.exports = function(app) {
     	//tims couchbase code here
 	    res.json({"reminders" : {
   					"carrier": "T-Mobile",
+					"id": uuid.v1(),
   					"destination": "Venice, CA",
   					"monday": "true",
   					"origin": "Covina, CA",
