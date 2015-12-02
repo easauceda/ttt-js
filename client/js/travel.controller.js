@@ -1,7 +1,7 @@
 angular.module('travel.controller', [])
 	.controller('TravelController', function($scope, TravelService) {
 		$scope.add = function() {
-			TravelService.query({
+			TravelService.get({
 				origin: $scope.origin,
 				destination: $scope.destination,
 				phone: $scope.phone,
