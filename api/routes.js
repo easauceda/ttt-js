@@ -7,6 +7,9 @@ module.exports = function(app) {
 	app.get('/api', function(req, res) {
 		console.log(req.query);
 	});
-};
 //Retrieve a traveler and their time
-
+	app.get('/api/reminder', function(req, res) {
+		console.log('made it');
+		res.json({'Hello': 'World'});
+	});
+};
