@@ -7,7 +7,7 @@ angular.module('app', ['ngRoute', 'ngResource', 'travel.controller', 'travel.ser
 		  })
 	  	  .when('/search', {
 				  	templateUrl: 'views/search.html',
-				  	controller: 'SearchController',
-				  });
-	  $locationProvider.html5Mode(true);
+				  	controller: 'SearchController'
+		  });
+	$locationProvider.html5Mode(true);
   }]);
