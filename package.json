@@ -12,6 +12,8 @@
   "dependencies": {
     "couchbase": "^2.1.2",
     "express": "^4.13.3",
+    "forever": "^0.15.1",
+    "node-schedule": "^0.6.0",
     "node-uuid": "^1.4.7"
   }
 }
