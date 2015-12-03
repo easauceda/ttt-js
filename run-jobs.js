@@ -31,8 +31,10 @@ setInterval(function() {
 			var phone = results[i].value.phone;
 			var origin = results[i].value.origin;
 			var destination = results[i].value.destination;
+			var carrier = results[i].value.carrier;
+			console.log(carrier);
 
-			var job = spawn('python',["time_js.py", phone, origin, destination]);
+			var job = spawn('python',["time_js.py", phone, origin, destination, carrier]);
 
 			job.stdout.on('data', function (data){
 				console.log('Sent Message');
