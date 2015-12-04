@@ -15,9 +15,9 @@
         </form>
         <div ng-repeat="reminder in reminders">
           <div class="reminder">
-            <h4>From {{reminder.origin}} to {{reminder.destination}}</h4>
+            <h4>From {{reminder.value.origin}} to {{reminder.value.destination}}</h4>
             <p>
-              At: {{reminder.time}}
+              At: <time>{{reminder.value.time}}</time>
             </p>
             <a href="api/delete/{{reminder.id}}" class="btn btn-md btn-primary"> Remove </a>
           </div>
