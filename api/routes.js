@@ -2,6 +2,8 @@ var couchbase = require('couchbase');
 var cluster = new couchbase.Cluster('couchbase://127.0.0.1');
 var bucket = cluster.openBucket('reminders');
 var uuid = require('node-uuid');
+var ViewQuery = couchbase.ViewQuery;
+
 
 //Add a reminder
 module.exports = function(app) {
@@ -30,15 +32,24 @@ module.exports = function(app) {
         });
         app.get('/api/reminder', function(req, res) {
                 //couchbase code here
-                var query = ViewQuery.from('dev_by_number')
-                    .key(req.params.$number)
+                var query = ViewQuery.from('dev_by_number', 'number')
+                    .key(req.query.$number)
                     .stale(ViewQuery.Update.BEFORE);
+
                 bucket.query(query, function(err, results) {
-                        res.json({
-                            'reminders': results
-                        })
-                    };
-                }); app.get('/api/delete/:id', function(req, res) {
+			for (var i in results){
+				var date = results[i].value.time;
+				console.log(date);
+				var new_date = new Date(date.toString());
+				results[i].value.time = new_date.toTimeString();
+
+			}
+                        res.json(results);
+
+		});
+	});	
+
+	       	app.get('/api/delete/:id', function(req, res) {
                 //couchbase call here
                 console.log(req.params.id);
                 res.send("OK");
