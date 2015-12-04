@@ -29,17 +29,12 @@ module.exports = function(app) {
           });
     });
     app.get('/api/reminder', function(req, res) {
-    	//tims couchbase code here
-	    res.json({"reminders" : {
-  					"carrier": "T-Mobile",
-					"id": uuid.v1(),
-  					"destination": "Venice, CA",
-  					"monday": "true",
-  					"origin": "Covina, CA",
-  					"phone": "6266784572",
-  					"time": "1970-01-01T21:30:00.000Z",
-  					"wednesday": "true"
-				}});
+    	//couchbase code here
+	    var query = ViewQuery.from('dev_by_number')
+           .key(res.params.$number)
+           .stale(ViewQuery.Update.BEFORE);
+          res.json({'reminders': ???
+        })
     });
     app.get('/api/delete/:id', function(req, res) {
 	    //couchbase call here
