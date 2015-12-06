@@ -4,7 +4,7 @@ var bucket = cluster.openBucket('reminders');
 var uuid = require('node-uuid');
 var ViewQuery = couchbase.ViewQuery;
 
-
+// ADRIAN'S CODE
 //Add a reminder
 module.exports = function(app) {
         app.get('/api', function(req, res) {
@@ -30,6 +30,8 @@ module.exports = function(app) {
                 }
             });
         });
+
+
         app.get('/api/reminder', function(req, res) {
                 //couchbase code here
                 var query = ViewQuery.from('dev_by_number', 'number')
@@ -48,10 +50,21 @@ module.exports = function(app) {
 
 		});
 	});	
-
+            //DAVID
 	       	app.get('/api/delete/:id', function(req, res) {
+                var id = req.params.id;
                 //couchbase call here
-                console.log(req.params.id);
-                res.send("OK");
+                console.log(id);
+    
+                bucket.remove(id, function(err, res) {
+                    if (err) {
+                        console.log('operation failed', err);
+                        /*
+                         operation failed { [Error: The key does not exist on the server] code: 13 }
+                         */
+                        return;
+                    }
+                    res.send('success! job ' + id + ' was deleted' , res);
+                });
             });
         };
