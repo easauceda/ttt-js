@@ -56,7 +56,7 @@ module.exports = function(app) {
             //couchbase call here
             console.log(id);
 
-            bucket.remove(id, res, function(err, res) {
+            bucket.remove(id, function(err, results) {
                 if (err) {
                     console.log('operation failed', err);
                     /*
@@ -64,7 +64,7 @@ module.exports = function(app) {
                      */
                     return;
                 }
+                res.send('success! job ' + id + ' was deleted');
             });
-            res.send('success! job ' + id + ' was deleted');
         });
     };
