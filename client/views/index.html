@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -8,28 +8,25 @@
 
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/master.css">
-
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-resource.min.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
-
-		<script src="js/app.js"></script>
-		<script src="js/travel.controller.js"></script>
-		<script src="js/travel.service.js"></script>
-		<script src="js/search.service.js"></script>
-		<script src="js/search.controller.js"></script>
+		<link rel="stylesheet" href="css/base.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
 	</head>
-	<body ng-app="app">
-
-		<nav class="navbar navbar-inverse navbar-static-top">
-			<div class="navbar-header">
-				<h4 class="navbar-brand" href="#">TimeToTravel</a>
-				</div>
-		<ul class="nav navbar-nav">
-			<li><a href="/">Home</a></li>
-			<li><a href="/search">Search</a></li>
-		</ul>
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<a class="navbar-brand" href="#">ttt-js</a>
+			<ul class="nav navbar-nav">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Search</a></li>
+			</ul>
 		</nav>
-		<div ng-view></div>
+		<div class="container-fluid">
+			<div class="row">
+					<div id="content"></div>
+			</div>
+		</div>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8QYu-O5kfs82YO_T_NbrBqUM-kca6DOw"></script>
+		<script type="text/babel" src="js/travel-react.js"></script>
 	</body>
 </html>
